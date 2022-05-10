@@ -67,7 +67,7 @@ public class MovingCube : MonoBehaviour
 
         float newXPosition = LastCube.transform.position.x + (hangover / 2);
         transform.localScale = new Vector3(newSize , transform.localScale.y, transform.localScale.z);
-        transform.position = new Vector3(newXPosition , transform.position.y, transform.position.x);
+        transform.position = new Vector3(newXPosition , transform.position.y, transform.position.z);
 
 
         float cubeEdge = transform.position.x + (newSize / 2f * direction);
@@ -82,14 +82,12 @@ public class MovingCube : MonoBehaviour
         float newSize = LastCube.transform.localScale.z - Mathf.Abs(hangover);
         float fallingBlockSize = transform.localScale.z - newSize;
 
-        float newZPosition = LastCube.transform.position.z + (hangover / 2);
+        float newZPosition = LastCube.transform.position.z + (hangover / 2); 
         transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y, newSize);
-        transform.position = new Vector3(transform.position.x, transform.position.y, newZPosition);
+        transform.position = new Vector3(transform.position.x, transform.position.y, newZPosition); 
 
-
-        float CubeEdge = transform.position.z + (newSize / 2f * direction);
-        float fallingBlockZPosition = CubeEdge + fallingBlockSize / 2 * direction;
-
+        float CubeEdge = transform.position.z + (newSize / 2f * direction); 
+        float fallingBlockZPosition = CubeEdge + fallingBlockSize / 2 * direction; 
 
         SpawnDropCube(fallingBlockZPosition, fallingBlockSize);
     }
